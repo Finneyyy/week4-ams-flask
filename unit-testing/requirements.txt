@@ -1,0 +1,6 @@
+flask
+flask_sqlalchemy==2.5.1
+flask_wtf
+flask_testing
+pytest
+pytest-cov
