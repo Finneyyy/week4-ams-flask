@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length, ValidationError
+from wtforms_validators import AlphaNumeric
 
 app = Flask(__name__)
 app.config['SECRET_KEY']='SOME_KEY'
@@ -20,6 +21,7 @@ class UserCheck:
 class myForm(FlaskForm):
     username = StringField('Username', validators=[
         DataRequired(),
+        AlphaNumeric(),
         UserCheck(message="That username is not allowed", banned = ['root','admin','sys']),
         Length(min=2,max=15)
         ])
